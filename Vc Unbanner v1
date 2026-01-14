@@ -1,36 +1,144 @@
-local Window = Rayfield:CreateWindow({
-   Name = "Vc Unbanner v1,
-   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-   LoadingTitle = "Vc Unbanner",
-   LoadingSubtitle = "by Sirius",
-   ShowText = "Rayfield", -- for mobile users to unhide rayfield, change if you'd like
-   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+--qwerty's Gui2Lua
+--version 1.1
 
-   ToggleUIKeybind = "F", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
+--made by @new_qwertyui on discord
 
-   DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+local ScreenGui: ScreenGui = Instance.new('ScreenGui', game.StarterGui);
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling;
 
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Big Hub"
-   },
 
-   Discord = {
-      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-   },
+local UICorner: UICorner = Instance.new('UICorner', ScreenGui);
 
-   KeySystem = false, -- Set this to true to use our key system
-   KeySettings = {
-      Title = "Vc Unbanner",
-      Subtitle = "Use A Key To Unlock The Script's.",
-      Note = "Join Our Discord Server For The Key discord.gg/hotdial", -- Use this to tell the user how to get a key
-      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"boost.exe"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
-   }
-})
+
+local UIStroke: UIStroke = Instance.new('UIStroke', ScreenGui);
+
+
+local LocalScript: LocalScript = Instance.new('LocalScript', ScreenGui);
+LocalScript.Source = 'local textLabel = script.Parent\n\nlocal function getCurrentTime()\n	local t = os.date('*t')\n\n	local hour = t.hour\n	local minute = t.min\n	local ampm = 'AM'\n\n	if hour >= 12 then\n		ampm = 'PM'\n	end\n\n	hour = hour % 12\n	if hour == 0 then\n		hour = 12\n	end\n\n	return string.format('%02d:%02d %s', hour, minute, ampm)\nend\n\nwhile true do\n	textLabel.Text = getCurrentTime()\n	task.wait(1)\nend\n';
+
+
+local Background_Frame: Frame = Instance.new('Frame', ScreenGui);
+Background_Frame.Name = 'Background_Frame';
+Background_Frame.BackgroundTransparency = 0.5;
+Background_Frame.Position = UDim2.new(0.773279369, 0, 0.098, 0);
+Background_Frame.BorderColor3 = Color3.fromRGB(0, 0, 0);
+Background_Frame.Size = UDim2.new(0, 271, 0, 310);
+Background_Frame.BorderSizePixel = 0;
+Background_Frame.BackgroundColor3 = Color3.fromRGB(83, 83, 83);
+
+
+local UICorner: UICorner = Instance.new('UICorner', Background_Frame);
+
+
+local Top_Gui_Spliting_frame: Frame = Instance.new('Frame', Background_Frame);
+Top_Gui_Spliting_frame.Name = 'Top_Gui_Spliting_frame';
+Top_Gui_Spliting_frame.Position = UDim2.new(0.002061682, 0, 0.157, 0);
+Top_Gui_Spliting_frame.BorderColor3 = Color3.fromRGB(0, 0, 0);
+Top_Gui_Spliting_frame.Size = UDim2.new(0, 271, 0, 3);
+Top_Gui_Spliting_frame.BorderSizePixel = 0;
+Top_Gui_Spliting_frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0);
+
+
+local Top_Gui_Spliting_frame: Frame = Instance.new('Frame', Background_Frame);
+Top_Gui_Spliting_frame.Name = 'Top_Gui_Spliting_frame';
+Top_Gui_Spliting_frame.Position = UDim2.new(-0.001628355, 0, 0.318, 0);
+Top_Gui_Spliting_frame.BorderColor3 = Color3.fromRGB(0, 0, 0);
+Top_Gui_Spliting_frame.Size = UDim2.new(0, 271, 0, 3);
+Top_Gui_Spliting_frame.BorderSizePixel = 0;
+Top_Gui_Spliting_frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0);
+
+
+local close_menu_button: TextButton = Instance.new('TextButton', Background_Frame);
+close_menu_button.FontFace = Font.new('rbxasset://fonts/families/PressStart2P.json', Enum.FontWeight.Bold, Enum.FontStyle.Italic);
+close_menu_button.TextColor3 = Color3.fromRGB(255, 255, 255);
+close_menu_button.BorderColor3 = Color3.fromRGB(0, 0, 0);
+close_menu_button.Text = 'Close Menu';
+close_menu_button.Name = 'close_menu_button';
+close_menu_button.Position = UDim2.new(0.0877636, 0, 0.751, 0);
+close_menu_button.Size = UDim2.new(0, 223, 0, 50);
+close_menu_button.BorderSizePixel = 0;
+close_menu_button.TextSize = 31;
+close_menu_button.BackgroundColor3 = Color3.fromRGB(0, 0, 0);
+
+
+local LocalScript: LocalScript = Instance.new('LocalScript', close_menu_button);
+LocalScript.Source = 'local button = script.Parent\n\nbutton.MouseButton1Click:Connect(function()\n	local screenGui = button:FindFirstAncestorOfClass('ScreenGui')\n	if screenGui then\n		screenGui.Enabled = false\n	end\nend)\n';
+
+
+local UICorner: UICorner = Instance.new('UICorner', close_menu_button);
+
+
+local invisible_button: TextButton = Instance.new('TextButton', Background_Frame);
+invisible_button.FontFace = Font.new('rbxasset://fonts/families/PressStart2P.json', Enum.FontWeight.Bold, Enum.FontStyle.Italic);
+invisible_button.TextColor3 = Color3.fromRGB(255, 255, 255);
+invisible_button.BorderColor3 = Color3.fromRGB(0, 0, 0);
+invisible_button.Text = 'Invisible';
+invisible_button.Name = 'invisible_button';
+invisible_button.Position = UDim2.new(0.084073566, 0, 0.356, 0);
+invisible_button.Size = UDim2.new(0, 223, 0, 50);
+invisible_button.BorderSizePixel = 0;
+invisible_button.TextSize = 31;
+invisible_button.BackgroundColor3 = Color3.fromRGB(0, 0, 0);
+
+
+local LocalScript: LocalScript = Instance.new('LocalScript', invisible_button);
+LocalScript.Source = 'local Players = game:GetService('Players')\nlocal player = Players.LocalPlayer\nlocal button = script.Parent\n\nlocal isInvisible = false\nlocal highlight = nil\nlocal UNDERGROUND_OFFSET = -2 -- studs under baseplate\n\n-- Make character invisible/visible using LocalTransparencyModifier\nlocal function setInvisible(character, invisible)\n	local transparencyValue = invisible and 1 or 0\n\n	for _, part in pairs(character:GetDescendants()) do\n		if part:IsA('BasePart') or part:IsA('MeshPart') then\n			part.LocalTransparencyModifier = transparencyValue\n			part.CanCollide = not invisible\n		elseif part:IsA('Accessory') and part:FindFirstChild('Handle') then\n			part.Handle.LocalTransparencyModifier = transparencyValue\n			part.Handle.CanCollide = not invisible\n		end\n	end\nend\n\nbutton.MouseButton1Click:Connect(function()\n	local character = player.Character\n	if not character then return end\n	local root = character:FindFirstChild('HumanoidRootPart')\n	if not root then return end\n\n	if not isInvisible then\n		-- Move underground once\n		root.CFrame = root.CFrame * CFrame.new(0, UNDERGROUND_OFFSET, 0)\n\n		-- Make invisible\n		setInvisible(character, true)\n\n		-- Create outline\n		highlight = Instance.new('Highlight')\n		highlight.Adornee = character\n		highlight.FillTransparency = 1\n		highlight.OutlineTransparency = 0\n		highlight.OutlineColor = Color3.fromRGB(0, 255, 255)\n		highlight.Parent = player:WaitForChild('PlayerGui')\n\n		isInvisible = true\n	else\n		-- Restore visibility\n		setInvisible(character, false)\n\n		-- Remove outline\n		if highlight then\n			highlight:Destroy()\n			highlight = nil\n		end\n\n		isInvisible = false\n	end\nend)\n';
+
+
+local UICorner: UICorner = Instance.new('UICorner', invisible_button);
+
+
+local speed_button: TextButton = Instance.new('TextButton', Background_Frame);
+speed_button.FontFace = Font.new('rbxasset://fonts/families/PressStart2P.json', Enum.FontWeight.Bold, Enum.FontStyle.Italic);
+speed_button.TextColor3 = Color3.fromRGB(255, 255, 255);
+speed_button.BorderColor3 = Color3.fromRGB(0, 0, 0);
+speed_button.Text = 'Speed';
+speed_button.Name = 'speed_button';
+speed_button.Position = UDim2.new(0.0877636, 0, 0.549, 0);
+speed_button.Size = UDim2.new(0, 223, 0, 50);
+speed_button.BorderSizePixel = 0;
+speed_button.TextSize = 31;
+speed_button.BackgroundColor3 = Color3.fromRGB(0, 0, 0);
+
+
+local Speed_script: LocalScript = Instance.new('LocalScript', speed_button);
+Speed_script.Source = 'local Players = game:GetService('Players')\nlocal player = Players.LocalPlayer\nlocal button = script.Parent  -- make sure this is the TextButton\n\nlocal isFast = false  -- tracks toggle state\n\nbutton.MouseButton1Click:Connect(function()\n	local character = player.Character\n	if not character then return end\n	local humanoid = character:FindFirstChildOfClass('Humanoid')\n	if not humanoid then return end\n\n	if not isFast then\n		humanoid.WalkSpeed = 50\n		isFast = true\n	else\n		humanoid.WalkSpeed = 13  -- default speed\n		isFast = false\n	end\nend)\n';
+Speed_script.Name = 'Speed_script';
+
+
+local UICorner: UICorner = Instance.new('UICorner', speed_button);
+
+
+local TextLabel: TextLabel = Instance.new('TextLabel', Background_Frame);
+TextLabel.TextWrapped = true;
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0);
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0);
+TextLabel.Size = UDim2.new(0, 270, 0, 39);
+TextLabel.BorderSizePixel = 0;
+TextLabel.BackgroundTransparency = 1;
+TextLabel.Position = UDim2.new(0.002061682, 0, -0.002, 0);
+TextLabel.TextSize = 19;
+TextLabel.FontFace = Font.new('rbxasset://fonts/families/PressStart2P.json', Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+TextLabel.TextScaled = true;
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+
+
+local LocalScript: LocalScript = Instance.new('LocalScript', TextLabel);
+LocalScript.Source = 'local textLabel = script.Parent\n\nlocal function getCurrentTime()\n	local t = os.date('*t')\n\n	local hour = t.hour\n	local minute = t.min\n	local ampm = 'AM'\n\n	if hour >= 12 then\n		ampm = 'PM'\n	end\n\n	hour = hour % 12\n	if hour == 0 then\n		hour = 12\n	end\n\n	return string.format('%02d:%02d %s', hour, minute, ampm)\nend\n\nwhile true do\n	textLabel.Text = getCurrentTime()\n	task.wait(1)\nend\n';
+
+
+local TextLabel: TextLabel = Instance.new('TextLabel', Background_Frame);
+TextLabel.TextWrapped = true;
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0);
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0);
+TextLabel.Text = 'Boost's Jumpscare GUI';
+TextLabel.Size = UDim2.new(0, 280, 0, 50);
+TextLabel.BorderSizePixel = 0;
+TextLabel.BackgroundTransparency = 1;
+TextLabel.Position = UDim2.new(0.001346377, 0, 0.157, 0);
+TextLabel.TextSize = 14;
+TextLabel.FontFace = Font.new('rbxasset://fonts/families/PressStart2P.json', Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+TextLabel.TextScaled = true;
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+
+
